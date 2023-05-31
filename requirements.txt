@@ -5,5 +5,5 @@ sklearn==1.2.2
 torch==2.0.1
 torchvision==0.15.2
 
-Dependencies=
+Dependencies
 IPython==8.12.0
