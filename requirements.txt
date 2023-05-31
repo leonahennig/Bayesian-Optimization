@@ -1,0 +1,9 @@
+matplotlib==3.4.3
+numpy==1.24.3
+scipy==1.10.1
+sklearn==1.2.2
+torch==2.0.1
+torchvision==0.15.2
+
+Dependencies=
+IPython==8.12.0
