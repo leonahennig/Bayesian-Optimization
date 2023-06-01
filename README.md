@@ -11,7 +11,7 @@ The objective of this project is to automatize the search for the optimal learni
 
 The residual network was implemented based on this blogpost:
 ## Bayesian Optimization Process
-1. Initialization: In order to reduce computational time needed, I started with a single learning rate to initlialize and evaluate the model. The learning rate is optimized over the interval [0.0001,0.01].
+1. Initialization: In order to reduce computational time needed, I started with a single learning rate to initlialize and evaluate the model (Iteration 1). The learning rate is optimized over the interval [0.0001,0.01].
 2. Model Training: Train the deep neural network using the selected learning rates and evaluate its performance. The accuracy of the classification was implemented as an objective function. Again, to reduce computational time, the network is only trained for one epoch each.
 3. GP Modeling: Build a GP model to fit a function that returns the accuracy of the model for a given learning rate. A Matern52 kernel was used.
 4. Acquisition Function: Employ the EI function as the acquisition function to determine the next learning rate to evaluate.
@@ -39,7 +39,7 @@ These are the generated plots that display the results of the BO, starting after
     <img src="plot results/bo_plot_9.png" alt=Slide 10" width="700" height="200" />                                                                           
 </div>
 
-The plot includes 1 initilization learning rate as well as ten learning rates used in the ten iterations of BO. The predictive mean of the GP is fitted to these observations. A 95% confidence interval was also generated. Additionally, the acquisition function is plotted over the interval to optimize on. One can see that with each iteration, the varying learning rates led to an improved fit of the accuracy function. Furthermore, the acquistition function develops more significant peaks, allowing for an increasingly confident prediction of the optimal learning rate.
+The nine plots include one initilization learning rate as well as nine additional learning rates used in the ten total iterations of BO. The predictive mean of the GP is fitted to these observations. A 95% confidence interval was also generated. Additionally, the acquisition function is plotted over the interval to optimize on. One can see that with each iteration, the varying learning rates led to an improved fit of the accuracy function. Furthermore, the acquistition function develops more significant peaks, allowing for an increasingly confident prediction of the optimal learning rate. One can se that the highest peak of the aquisition functions determines the next learning rate observation, as desired.
 
 ## Next Steps
 To improve the implementation provided here, several steps could still be taken to improve the training, including:
