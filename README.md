@@ -9,14 +9,13 @@ The objective of this project is to automatize the search for the optimal learni
 - __Optimization steps__: Use an optimization budget of 10 function evaluations.
 - __Plotting__: Starting with the second iteration of BO, plot all observations, the posterior mean, the uncertainty estimate, and the acquisition function after each iteration.
 
-The residual network was implemented based on this blogpost:
 ## Bayesian Optimization Process
 1. Initialization: In order to reduce computational time needed, I started with a single learning rate to initlialize and evaluate the model (Iteration 1). The learning rate is optimized over the interval [0.0001,0.01].
-2. Model Training: Train the deep neural network using the selected learning rates and evaluate its performance. The accuracy of the classification was implemented as an objective function. Again, to reduce computational time, the network is only trained for one epoch each.
-3. GP Modeling: Build a GP model to fit a function that returns the accuracy of the model for a given learning rate. A Matern52 kernel was used.
+2. Model training: Train the deep neural network using the selected learning rates and evaluate its performance. The accuracy of the classification was implemented as an objective function. To reduce computational time, the network is only trained for one epoch each.
+3. GP modeling: Build a GP model to fit a function that returns the accuracy of the model for a given learning rate. A Matern52 kernel was used.
 4. Acquisition Function: Employ the EI function as the acquisition function to determine the next learning rate to evaluate.
-5. Update Model: Update the Gaussian Process model using the newly evaluated learning rate and its corresponding accuracy.
-6. Repeat: This process is executed for ten iterations.
+5. Update model: Update the Gaussian Process model using the newly evaluated learning rate and its corresponding accuracy.
+6. Repeat: This process is executed for ten iterations in total.
 7. Plotting: Starting from the second iteration, where the initialization counts as the first iteration of BO, plot the observations, posterior mean, uncertainty estimate, and acquisition function after each iteration. 
 
 Note that the ResNet9 in the notebook follows this implementation: https://github.com/ksw2000/ML-Notebook/blob/main/ResNet/ResNet_PyTorch.ipynb.
@@ -24,7 +23,7 @@ Note that the ResNet9 in the notebook follows this implementation: https://githu
 To run the code, install the necessary dependencies specified in the requierements.txt file. Run the notebook to execute the BO process for learning rate estimation. View the generated plots to analyse the optimization progress.
 
 ## Results
-These are the generated plots that display the results of the BO, starting after the model fitting with the initialization parameter. There are 10 iterations in total plus the initialization.
+These are the generated plots that display the results of the BO, starting after the model fitting with the initialization parameter.
 
 <div>
     <img src="plot results/bo_plot_0.png" alt=Slide 1" width="700" height="200" />
